@@ -23,7 +23,9 @@ var visualPiano = function(element) {
     
     function findNoteElements() {
         var keys = that.element.children;
+        
         that.noteElements = [];
+     
         for (var i = 0; i < keys.length; i++) {
             var key = keys[i];
             that.noteElements.push(key.firstElementChild);
@@ -33,7 +35,7 @@ var visualPiano = function(element) {
     
     
     this.showNotes = function(notes) {
-        var elements = this.noteElements;
+        var elements = that.noteElements;
         for (var i = 0; i < elements.length; i++) {
             var note = elements[i].textContent;
             
@@ -44,6 +46,32 @@ var visualPiano = function(element) {
             }
         }
     }
+    
+    that.toggleNote = function (note) {
+        for (var i = 0; i < that.noteElements.length; i++) {
+            var element = that.noteElements[i];
+            if (note === element.textContent) {
+                element.classList.toggle("invisible");
+            }
+        }
+    }
+    
+    function enableClickToggle() {
+        var listener = function(event) {
+            var note = event.target.textContent;
+            that.toggleNote(note);
+        };
+
+        var elems = that.noteElements;
+        console.log("sdf");
+        for(var i = 0; i < elems.length; i++) {
+            elems[i].addEventListener('click', listener);
+        }
+    }
+
+    enableClickToggle();
+    
+    
 }
 
 
@@ -55,5 +83,4 @@ vp = new visualPiano(pianoElement);
 vp.showNotes(scale.notes);
 
 console.log(vp);
-
 

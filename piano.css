@@ -63,6 +63,10 @@ body {
     background:linear-gradient(45deg, #222 0%,#555 100%);
 }
 
+.note {
+    opacity: 100%;
+}
+
 .key.black .note {
     position: absolute;
     bottom: 10%;
@@ -112,5 +116,5 @@ ul li:last-child { border-radius:0 5px 5px 5px; }
 }
 
 .note.invisible {
-    visibility: hidden;
+    opacity: 0;
 }
