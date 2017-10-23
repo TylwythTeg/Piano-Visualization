@@ -47,7 +47,7 @@ var visualPiano = function(element) {
         }
     }
     
-    that.toggleNote = function (note) {
+    this.toggleNote = function (note) {
         for (var i = 0; i < that.noteElements.length; i++) {
             var element = that.noteElements[i];
             if (note === element.textContent) {
